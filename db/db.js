@@ -1,34 +1,37 @@
-mongoose.connect('mongodb://127.0.0.1/')
+const mongoose = require('mongoose');
 
-const itemschema={
+mongoose.connect('mongodb://127.0.0.1/Blog');
+
+const BlogSchema = new mongoose.Schema({
     banner: {
         public_id: {
-          type: String,
+            type: String,
         },
         secure_url: {
-          type: String,
+            type: String,
         },
-      },,
-    heading:{
-        type:String,
-        
     },
-    subheading:{
-        type:string
+    heading: {
+        type: String,
+        required: true,
+        unique: true,
     },
-    paragraph:{
-        type:string
+    subheading: {
+        type: String, // Corrected casing
+    },
+    paragraph: {
+        type: String, // Corrected casing
     },
     image: {
         public_id: {
-          type: String,
+            type: String,
         },
         secure_url: {
-          type: String,
+            type: String,
         },
-      },
-}
+    },
+});
 
-let Item=mongoose.model("Item",itemschema)
+const Blog = mongoose.model("Blog", BlogSchema); // Corrected variable name
 
-export default Item
+module.exports = Blog;
