@@ -1,0 +1,161 @@
+body{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+#heading{
+    font-size: 3.5em;
+}
+
+/* post.css */
+
+/* Style for the file input container */
+.file-input-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    height: 30vh;
+    background-color: rgba(0, 0, 0, 0.179);
+    border-bottom: 1px solid #ccc;
+}
+
+/* Style for the actual file input */
+.file-input {
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size: 100px; /* Set a large font size to cover the entire container */
+    opacity: 0;
+    cursor: pointer;
+    width: 100vw;
+    height: 30vh;
+}
+
+/* Style for the "+" icon image */
+.plus-icon {
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+    width: 48px; /* Set the width of the image */
+    height: 48px; /* Set the height of the image */
+    cursor: pointer;
+
+}
+
+#heading{
+    position: absolute;
+    top: 35vh;
+    width: 100vw;
+    height: auto;
+    border: none;
+    overflow-y: hidden;
+    resize: none;
+    display: block;
+}
+
+#heading:focus{
+    outline: none;
+}
+
+#subheading{
+    position: absolute;
+    width:100vw;
+    height: auto;
+    border: none;
+    overflow-y: hidden;
+    resize: none;
+    top:45vh;
+    font-size: 2.5em;
+}
+
+#subheading:focus{
+    outline: none;
+}
+
+#content{
+    position: absolute;
+    width:100vw;
+    height: auto;
+    border: none;
+    overflow-y: hidden;
+    resize: none;
+    top:55vh;
+    font-size: 1.5em;
+}
+
+#content:focus{
+    outline: none;
+}
+
+.plus-icon-bottom {
+    position: absolute;
+    left: 50%;
+    top: 15vh;
+    transform: translate(-50%, -50%);
+    width: 48px; /* Set the width of the image */
+    height: 48px; /* Set the height of the image */
+    cursor: pointer;
+
+}
+
+.uploaded-image {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 97%;
+    margin: .5rem;
+    height: 35vh;
+}
+
+.file-input-container-bottom {
+    position: relative;
+    top: 35vh;
+    overflow: hidden;
+    display: inline-block;
+    height: 30vh;
+    background-color: rgba(0, 0, 0, 0.179);
+    border-bottom: 1px solid #ccc;
+    width: 30vw;
+    left: 35vw;
+}
+
+.file-input-bottom {
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size: 100px;
+    opacity: 0;
+    cursor: pointer;
+    width: 40vw;
+    height: 30vh;
+}
+
+#banner{
+    position: absolute;
+    width: 110vw;
+    object-fit: cover;
+    height: max-content;
+
+}
+#submit{
+    position: fixed;
+    float: center;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 8px 16px;
+    text-align: center;
+    background-color: black;
+    transition: 0.3s;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+#submit:hover{
+    transform: scale(110%);
+}
