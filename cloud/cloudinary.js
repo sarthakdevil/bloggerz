@@ -1,32 +1,20 @@
-var fs = require("fs");
-const Cloudinary = require('cloudinary')
-const express =require('express');
-var app=express();
-Cloudinary.v2.config({
-    cloud_name: 
-    process.env.CLOUD,
-    api_key:
-    process.env.API_KEY,
-    api_secret:
-    process.env.API_SECRET
-})
+const cloudinary = require('cloudinary').v2;
+require('dotenv').config();
+// Configure Cloudinary
+cloudinary.config({
+    cloud_name: process.env.CLOUD,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET
+});
 
-const uploadonCloudinary= async (localFilePath)=>{
-    try{
-        if(!localFilePath) return null
-        
-        const response = await Cloudinary.uploader.upload(localFilePath,{
-            resource_type:'auto'
-        })
-        console.log(`Image uploaded to ${response.secure_url}`);
-        return response;
-    }catch(error){
-        fs.unlinkSync(localFilePath)
-        return null;
-    }
+async function uploadOnCloudinary(filePath) {
+  try {
+    const result = await cloudinary.uploader.upload(filePath);
+    return result;
+  } catch (error) {
+    console.error('Error uploading image to Cloudinary:', error);
+    throw error;
+  }
 }
-PORT =9500;
-app.listen(PORT,()=>{
-    console.log(`cloud service is running on port ${PORT}`)
-})
-module.exports={uploadonCloudinary}
+
+module.exports = {uploadOnCloudinary};

@@ -12,10 +12,10 @@
         <span class="file-input-container">
             <!-- Actual file input -->
             <label class="file-input-label" for="file-input" name="banner">
-                <img class="plus-icon" src="Plus.png" alt="Upload">
+                <img class="plus-icon" src="Plus.png" alt="Upload" name="banner">
             </label>
             <input type="file" class="file-input" id="file-input" name="banner"/>
-            <img src="#" alt="Uploaded Image" class="uploaded-image" id="banner" name="banner">
+            <img src="#" alt="Uploaded Image" class="uploaded-image" style="display: none;">
             <!-- "+" icon -->
         </span>
         <hr>
@@ -24,11 +24,11 @@
         <textarea name="content" placeholder="Here goes content" id="content" oninput="autoAdjustHeight(this)" class="auto-adjust"></textarea>
         <span class="file-input-container-bottom auto-adjust">
             <!-- Actual file input -->
-            <label class="file-input-label-bottom auto-adjust" for="file-input-bottom" name="banner">
+            <label class="file-input-label-bottom auto-adjust" for="file-input-bottom">
                 <img class="plus-icon-bottom" src="Plus.png" alt="Upload">
             </label>
             <input type="file" class="file-input-bottom" id="file-input-bottom" name="image"/>
-            <img src="#" alt="Uploaded Image" class="uploaded-image" id="uploadedImage-1"  style="display: none;" name="image">
+            <img src="#" alt="Uploaded Image" class="uploaded-image" id="uploadedImage-1"  style="display: none;">
             <!-- "+" icon -->
         </span>
         <button id="submit" type="submit">submit your blog</button>
