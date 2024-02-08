@@ -31,29 +31,28 @@
           <img src="blogging-1.png" style="width:100%">
           <div class="text">Caption Three</div>
         </div>
-        <%-include("footer") %>
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
         
         </div>
         <div class="blogs">
           <% if (Blogs.length > 0) { %>
-            <div>
-                <% Blogs.forEach(blog => { %>
-                    <div class="blog-container">
-                        <h2><%= blog.heading %></h2>
-                        <h3><%= blog.subheading %></h3>
-                        <p><%= blog.paragraph %></p>
-                        <img src="<%= blog.banner.secure_url %>" alt="Banner Image">
-                        <img src="<%= blog.image.secure_url %>" alt="Image">
-                    </div>
-                <% }); %>
-            </div>
-        <% } else { %>
-            <p>No blogs found.</p>
-        <% } %>
-     
-        </div>
+                  <% Blogs.forEach(blog => { %>
+                      <div class="blog-container">
+                          <% if (blog.banner && blog.banner.secure_url) { %>
+                              <img class="poster" src="<%= blog.banner.secure_url %>" alt="Banner Image">
+                          <% } else { %>
+                              <!-- Provide a fallback image or placeholder image if the banner image doesn't exist -->
+                              <img src="default.png" alt="Fallback Image">
+                          <% } %>
+                          <h2><%= blog.heading %></h2>
+                      </div>
+                  <% }); %>
+          <% } else { %>
+              <p>No blogs found.</p>
+          <% } %>
+      </div>
+        <%-include("footer") %>
         <script src="js/home.js">
             </script>
 </body>
