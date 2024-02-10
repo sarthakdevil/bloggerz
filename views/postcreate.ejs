@@ -11,11 +11,11 @@
     <form action="/submit" method="post"  enctype="multipart/form-data">
         <span class="file-input-container">
             <!-- Actual file input -->
-            <label class="file-input-label" for="file-input">
+            <label class="file-input-label" for="file-input" onchange="loadfile()">
                 <img class="plus-icon" src="Plus.png" alt="Upload">
             </label>
-            <input type="file" class="file-input" id="file-input" name="banner"  accept=".jpg,.jpeg,.png"/>
-            <img src="#" alt="Uploaded Image" class="uploaded-image" style="display: none;">
+            <input type="file" class="file-input" id="file-input" name="banner"  accept=".jpg,.jpeg,.png" onchange="loadfile()"/>
+            <img src="#" alt="Uploaded Image" class="uploaded-image" style="display: none;" id="banner-img">
             <!-- "+" icon -->
         </span>
         <hr>
@@ -24,10 +24,10 @@
         <textarea name="content" placeholder="Here goes content" id="content" oninput="autoAdjustHeight(this)" class="auto-adjust"></textarea>
         <span class="file-input-container-bottom auto-adjust">
             <!-- Actual file input -->
-            <label class="file-input-label-bottom auto-adjust" for="file-input-bottom">
+            <label class="file-input-label-bottom auto-adjust" for="file-input-bottom" onchange="loadfilebottom()">
                 <img class="plus-icon-bottom" src="Plus.png" alt="Upload">
             </label>
-            <input type="file" class="file-input-bottom" id="file-input-bottom" name="image" accept=".jpg,.jpeg,.png"/> />
+            <input type="file" class="file-input-bottom" id="file-input-bottom" name="image" accept=".jpg,.jpeg,.png" onchange="loadfilebottom()"/>
             <img src="#" alt="Uploaded Image" class="uploaded-image" id="uploadedImage-1"  style="display: none;">
             <!-- "+" icon -->
         </span>

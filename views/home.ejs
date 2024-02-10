@@ -43,13 +43,13 @@
                               <img class="poster" src="<%= blog.banner.secure_url %>" alt="Banner Image">
                           <% } else { %>
                               <!-- Provide a fallback image or placeholder image if the banner image doesn't exist -->
-                              <img src="default.png" alt="Fallback Image">
+                              <img src="default.jpg" alt="Fallback Image">
                           <% } %>
                           <h2><%= blog.heading %></h2>
                       </div>
                   <% }); %>
           <% } else { %>
-              <p>No blogs found.</p>
+              <a href="/blog"><p>Start writing your first blog</p></a>
           <% } %>
       </div>
         <%-include("footer") %>

@@ -12,34 +12,60 @@ function autoAdjustHeight(textarea) {
     }
 }
 
-var loadFile = function(event) {
-    var output = document.getElementById('banner');
-    var label = document.querySelector('.file-input-label');
-    var span = document.querySelector('.file-input-container')
-    // Hide the label
-    label.style.display = 'none';
-    span.style.background="transparent";
-    // Display the selected image
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.style.display = 'block';
+function loadfile() {
+    // Get the file input element
+    var input = document.getElementById('file-input');
+    
+    // Check if any file is selected
+    if (input.files && input.files[0]) {
+        // Get the selected file
+        var file = input.files[0];
+        
+        // Create a FileReader object
+        var reader = new FileReader();
+        
+        // Set onload event handler
+        reader.onload = function(e) {
+            // Get the uploaded image element
+            var img = document.getElementById('banner-img');
+            
+            // Set the src attribute of the image element to the data URL
+            img.src = e.target.result;
+            
+            // Make the image visible
+            img.style.display = 'block';
+        };
+        
+        // Read the file as Data URL
+        reader.readAsDataURL(file);
+    }
+}
 
-    output.onload = function() {
-        URL.revokeObjectURL(output.src); // free memory
-    };
-};
-
-var loadFileBottom = function(event) {
-    var output = document.getElementById('uploadedImage-1');
-    var label = document.querySelector('.file-input-label-bottom');
-    var span = document.querySelector('.file-input-container')
-    // Hide the label
-    label.style.display = 'none';
-    span.style.background="transparent";
-    // Display the selected image
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.style.display = 'block';
-
-    output.onload = function() {
-        URL.revokeObjectURL(output.src); // free memory
-    };
-};
+function loadfilebottom() {
+    // Get the file input element
+    var input = document.getElementById('file-input-bottom');
+    
+    // Check if any file is selected
+    if (input.files && input.files[0]) {
+        // Get the selected file
+        var file = input.files[0];
+        
+        // Create a FileReader object
+        var reader = new FileReader();
+        
+        // Set onload event handler
+        reader.onload = function(e) {
+            // Get the uploaded image element
+            var img = document.getElementById('uploadedImage-1');
+            
+            // Set the src attribute of the image element to the data URL
+            img.src = e.target.result;
+            
+            // Make the image visible
+            img.style.display = 'inline-block'; // Change display style to inline-block
+        };
+        
+        // Read the file as Data URL
+        reader.readAsDataURL(file);
+    }
+}
