@@ -16,7 +16,7 @@ body{
     position: relative;
     overflow: hidden;
     display: inline-block;
-    height: 30vh;
+    height: 70vh;
     background-color: rgba(0, 0, 0, 0.179);
     border-bottom: 1px solid #ccc;
 }
@@ -30,7 +30,7 @@ body{
     opacity: 0;
     cursor: pointer;
     width: 100vw;
-    height: 30vh;
+    height: 50vh;
 }
 
 /* Style for the "+" icon image */
@@ -47,7 +47,7 @@ body{
 
 #heading{
     position: absolute;
-    top: 35vh;
+    top: 75vh;
     width: 100vw;
     height: auto;
     border: none;
@@ -67,7 +67,7 @@ body{
     border: none;
     overflow-y: hidden;
     resize: none;
-    top:45vh;
+    top:85vh;
     font-size: 2.5em;
 }
 
@@ -82,7 +82,7 @@ body{
     border: none;
     overflow-y: hidden;
     resize: none;
-    top:55vh;
+    top:95vh;
     font-size: 1.5em;
 }
 
@@ -134,11 +134,12 @@ body{
     height: 30vh;
 }
 
-#banner{
+#banner-img{
     position: absolute;
     width: 110vw;
     object-fit: cover;
     height: max-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 }
 #submit{

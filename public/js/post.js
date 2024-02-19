@@ -69,3 +69,4 @@ function loadfilebottom() {
         reader.readAsDataURL(file);
     }
 }
+
