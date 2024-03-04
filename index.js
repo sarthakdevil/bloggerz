@@ -36,19 +36,21 @@ app.get('/blog', (req, res) => {
 
 app.use(express.json());
 
-app.post('/submit', upload.fields([{ name:"banner", maxCount: 1 }, { name:'image', maxCount: 1 }]), async (req, res) => {
+app.post('/submit', upload.fields([{ name: "banner", maxCount: 1 }, { name: 'image', maxCount: 1 }]), async (req, res) => {
     try {
-        const { heading, subheading, content } = req.body;
+        const { heading, subheading, content,font } = req.body;
+        const Color = req.body.color;
+        const bgcolor = req.body.bgcolor;
         let bannerUrl = '';
         let imageUrl = '';
         let bannerId = '';
         let imageId = '';
-  
+
         // Check if all required fields are present
         if (!heading || !subheading || !content) {
             return res.status(400).send('Please fill out all fields');
         }
-  
+
         // Check if the user provided banner image
         if (req.files && req.files["banner"]) {
             const filepath = req.files["banner"][0].path;
@@ -57,7 +59,7 @@ app.post('/submit', upload.fields([{ name:"banner", maxCount: 1 }, { name:'image
             bannerUrl = result1.secure_url;
             bannerId = result1.public_id;
         }
-  
+
         // Check if the user provided image
         if (req.files && req.files['image']) {
             const imgFilePath = req.files['image'][0].path;
@@ -66,7 +68,7 @@ app.post('/submit', upload.fields([{ name:"banner", maxCount: 1 }, { name:'image
             imageUrl = result2.secure_url;
             imageId = result2.public_id;
         }
-  
+
         // Create a new blog entry
         const newBlog = new Blog({
             banner: {
@@ -80,8 +82,11 @@ app.post('/submit', upload.fields([{ name:"banner", maxCount: 1 }, { name:'image
                 public_id: imageId,
                 secure_url: imageUrl,
             },
+            bgColor:bgcolor,
+            fontColor:Color,
+            font:font
         });
-  
+
         // Save the new blog entry
         const savedBlog = await newBlog.save();
         console.log(`Blog saved successfully with id ${savedBlog._id}`);
@@ -90,7 +95,24 @@ app.post('/submit', upload.fields([{ name:"banner", maxCount: 1 }, { name:'image
         console.error('Error:', error);
         res.status(500).send('Server error');
     }
-  });
+});
+app.get('/blogs/:id', async (req, res) => {
+    try {
+        const blogID = req.params.id;
+        const foundBlog = await Blog.findById(blogID);
+
+        if (foundBlog) {
+            console.log(foundBlog);
+            res.render("preview", { blog: foundBlog });
+        } else {
+            res.status(404).send("Blog not found");
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

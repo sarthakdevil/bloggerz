@@ -1,0 +1,36 @@
+div{
+    width: 100vw;
+    margin: 2%;
+    background-color: #191717;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+}
+div>#color,#bgcolor{
+    border: none;
+    stroke: 0.5px white;
+    background: transparent;
+}
+select{
+    position: relative;
+    float: right;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: large;
+    padding: .5%;
+    margin-right: 3%;
+    
+}
+select:focus{
+    outline: none;
+}
+#color,#bgcolor{
+    position: relative;
+    top: 50%;
+    margin-left: 1%;
+    justify-content: center;
+    align-self: center;
+}
+select>option{
+    color:black;
+}

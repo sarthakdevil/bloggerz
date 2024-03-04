@@ -10,13 +10,21 @@ body{
 }
 
 /* post.css */
+.post-div{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    padding: 0%;
+    margin: 0%;
 
+}
 /* Style for the file input container */
 .file-input-container {
     position: relative;
     overflow: hidden;
     display: inline-block;
-    height: 70vh;
+    height: 40vh;
+    top: 10vh;
     background-color: rgba(0, 0, 0, 0.179);
     border-bottom: 1px solid #ccc;
 }
@@ -47,7 +55,7 @@ body{
 
 #heading{
     position: absolute;
-    top: 75vh;
+    top: 55vh;
     width: 100vw;
     height: auto;
     border: none;
@@ -67,7 +75,7 @@ body{
     border: none;
     overflow-y: hidden;
     resize: none;
-    top:85vh;
+    top:65vh;
     font-size: 2.5em;
 }
 
@@ -82,7 +90,7 @@ body{
     border: none;
     overflow-y: hidden;
     resize: none;
-    top:95vh;
+    top:75vh;
     font-size: 1.5em;
 }
 
@@ -113,7 +121,7 @@ body{
 
 .file-input-container-bottom {
     position: relative;
-    top: 35vh;
+    top: 55vh;
     overflow: hidden;
     display: inline-block;
     height: 30vh;
@@ -160,3 +168,30 @@ body{
 #submit:hover{
     transform: scale(110%);
 }
+hr{
+    position: relative;
+    top: 10vh;
+}
+textarea{
+    background: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #ffffff; /* Color of the scrollbar track */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #000000; /* Color of the scrollbar handle */
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #040404; /* Color of the scrollbar handle on hover */
+  }
+  

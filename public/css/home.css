@@ -8,11 +8,25 @@ body{
     
 }
 
-/* For WebKit Browsers (Chrome, Safari) */
-/* width and height are for the scrollbar track, while background-color is for the scrollbar itself */
-/* You can customize these properties to fit your design */
+/* WebKit browsers */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
 
 /* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff; /* Color of the scrollbar track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000000; /* Color of the scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #040404; /* Color of the scrollbar handle on hover */
+}
 
 hr{
     position: relative;
@@ -126,9 +140,9 @@ footer{
 }
 
 .blog-container>img{
-  height: 15vw;
+  height: 16vw;
   width: 24vw;
-  transition: all .7s;
+  transition: 0.7s;
   cursor: pointer;
   border-top-right-radius:15px ;
   border-top-left-radius: 15px;

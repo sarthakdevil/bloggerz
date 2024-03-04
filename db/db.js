@@ -30,6 +30,19 @@ const BlogSchema = new mongoose.Schema({
             type: String,
         },
     },
+    fontColor:{
+        type :String,
+        default:"#000000"
+    },
+    bgColor:{
+        type:String,
+        default:"#ffffff"
+    },
+    font:{
+        type:String,
+        default:"Arial"
+    }
+
 });
 
 const Blog = mongoose.model("Blog", BlogSchema); // Corrected variable name

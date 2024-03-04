@@ -1,0 +1,28 @@
+<!-- view-blog.ejs (or any other template engine you're using) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Blog</title>
+    <link rel="stylesheet" href="/css/preview.css">
+</head>
+
+<body style="background: <%= blog.bgColor %>;  color: <%= blog.fontColor %>; font:<%=blog.font %>;">
+
+    <% if (blog) { %>
+        <% if (blog.banner.secure_url !== '') { %>
+            <img class="banner"  src="<%= blog.banner.secure_url %>"/>
+        <% } %>        
+        <h1 class="heading"><%= blog.heading %></h1>
+        <h2 class="subheading"><%= blog.subheading %></h2>
+        <p class="body"><%= blog.paragraph %></p>
+        <% if (blog.image.secure_url !== '') { %>
+            <img src="<%= blog.image.secure_url %>"/>
+        <% } %> 
+        <!-- Render other blog details as needed -->
+    <% } else { %>
+        <p>No blog found.</p>
+    <% } %>
+</body>
+</html>

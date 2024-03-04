@@ -36,22 +36,23 @@
         
         </div>
         <div class="blogs">
-          <% if (Blogs.length > 0) { %>
-                  <% Blogs.forEach(blog => { %>
-                      <div class="blog-container">
-                          <% if (blog.banner && blog.banner.secure_url) { %>
-                              <img class="poster" src="<%= blog.banner.secure_url %>" alt="Banner Image">
-                          <% } else { %>
-                              <!-- Provide a fallback image or placeholder image if the banner image doesn't exist -->
-                              <img src="default.jpg" alt="Fallback Image">
-                          <% } %>
-                          <h2><%= blog.heading %></h2>
-                      </div>
-                  <% }); %>
-          <% } else { %>
-              <a href="/blog"><p>Start writing your first blog</p></a>
-          <% } %>
-      </div>
+            <% if (Blogs.length > 0) { %>
+                <% Blogs.forEach(blog => { %>
+                    <div class="blog-container">
+                        <% if (blog.banner && blog.banner.secure_url) { %>
+                            <a href="/blogs/<%= blog._id %>"><img class="poster" src="<%= blog.banner.secure_url %>" alt="Banner Image"></a>
+                        <% } else { %>
+                            <!-- Provide a fallback image or placeholder image if the banner image doesn't exist -->
+                            <a href="/blogs/<%= blog._id %>"><img src="default.jpg" alt="Fallback Image"></a>
+                        <% } %>
+                        <h2><a href="/blogs/<%= blog._id %>"><%= blog.heading %></a></h2>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <a href="/blog"><p>Start writing your first blog</p></a>
+            <% } %>
+        </div>
+        
         <%-include("footer") %>
         <script src="js/home.js">
             </script>
