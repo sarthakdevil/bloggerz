@@ -16,7 +16,9 @@
         <% } %>        
         <h1 class="heading"><%= blog.heading %></h1>
         <h2 class="subheading"><%= blog.subheading %></h2>
-        <p class="body"><%= blog.paragraph %></p>
+        <div class="content">
+            <%- blog.paragraph%>
+        </div>
         <% if (blog.image.secure_url !== '') { %>
             <img src="<%= blog.image.secure_url %>"/>
         <% } %> 

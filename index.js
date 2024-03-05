@@ -77,7 +77,7 @@ app.post('/submit', upload.fields([{ name: "banner", maxCount: 1 }, { name: 'ima
             },
             heading,
             subheading,
-            paragraph: content,
+            paragraph: content.replace(/\n/g, '<br>'),
             image: {
                 public_id: imageId,
                 secure_url: imageUrl,

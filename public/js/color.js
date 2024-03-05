@@ -40,24 +40,51 @@ document.addEventListener('DOMContentLoaded', function() {
         const font = selectedFont;
     });
 });
-function formatText(style) {
+function GetSelectedText() {
+
+    if (document.getSelection) {    // all browsers, except IE before version 9
+        var sel = document.getSelection();
+            // sel is a string in Firefox and Opera, 
+            // and a selectionRange object in Google Chrome, Safari and IE from version 9
+            // the alert method displays the result of the toString method of the passed object
+        alert(sel);
+    } 
+    else {
+        if (document.selection) {   // Internet Explorer before version 9
+            var textRange = document.selection.createRange();
+            alert(textRange.text);
+        }
+    }
+}
+
+function applyBold() {
+    applyStyle('bold');
+}
+
+function applyItalic() {
+    applyStyle('italic');
+}
+
+function applyStyle(style) {
     var textarea = document.activeElement;
-    var selectionStart = textarea.selectionStart;
-    var selectionEnd = textarea.selectionEnd;
-    var selectedText = textarea.value.substring(selectionStart, selectionEnd);
+    var selectedText = textarea.value.substring(textarea.selectionStart, textarea.selectionEnd);
 
     switch (style) {
         case 'bold':
-            selectedText = "<b>" + selectedText + "</b>";
+            selectedText = "**" + selectedText + "**"; // Markdown style for bold
             break;
         case 'italic':
-            selectedText = "<i>" + selectedText + "</i>";
+            selectedText = "*" + selectedText + "*"; // Markdown style for italic
             break;
     }
 
-    var newText = textarea.value.substring(0, selectionStart) + selectedText + textarea.value.substring(selectionEnd);
+    var newText = textarea.value.substring(0, textarea.selectionStart) + selectedText + textarea.value.substring(textarea.selectionEnd);
     textarea.value = newText;
 
-    // Preserve selection
-    textarea.setSelectionRange(selectionStart, selectionStart + selectedText.length);
+    // Adjust the cursor position to the end of the inserted text
+    textarea.selectionStart = textarea.selectionEnd = textarea.selectionStart + selectedText.length;
 }
+
+
+// Usage:
+// Call applyStyle('bold') or applyStyle('italic') where appropriate in your code
