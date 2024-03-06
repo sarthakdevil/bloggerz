@@ -88,3 +88,20 @@ function applyStyle(style) {
 
 // Usage:
 // Call applyStyle('bold') or applyStyle('italic') where appropriate in your code
+function alignLeft() {
+    document.getElementById('heading').style.textAlign = 'left';
+    document.getElementById('subheading').style.textAlign = 'left';
+    document.getElementById('content').style.textAlign = 'left';
+  }
+
+  function alignRight() {
+    document.getElementById('heading').style.textAlign = 'right';
+    document.getElementById('subheading').style.textAlign = 'right';
+    document.getElementById('content').style.textAlign = 'right';
+  }
+
+  function alignCenter() {
+    document.getElementById('heading').style.textAlign = 'center';
+    document.getElementById('subheading').style.textAlign = 'center';
+    document.getElementById('content').style.textAlign = 'center';
+  }

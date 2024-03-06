@@ -1,3 +1,4 @@
+<script src="js/color.js"></script>
 <link rel="stylesheet" href="css/blognav.css">
 <div class="post-div">
     <input type="color" id="bgcolor" name="bgcolor" value="#ffffff" name="bgcolor"/>
@@ -6,6 +7,9 @@
     <label for="bgcolor">font color</label>
     <button type="button" onclick="applyBold('bold')">Bold</button>
     <button type="button" onclick="applyItalic('italic')">Italic</button>
+    <button type="button"><img src="./justify-left.svg" alt="justify-left" onclick="alignLeft()"></button>
+    <button type="button"><img src="./justify-right.svg" alt="justify-right"  onclick="alignRight()"></button>
+    <button type="button"><img src="./justify.svg" alt="justify-center"  onclick="alignCenter()" ></button>
     <select id="font" name="font">
         <option value="Lucida-grande">Lucida-grande</option>
         <option value="Lucida">Lucida Sans</option>
@@ -17,5 +21,4 @@
         <option value="Impact">Impact</option>
         <!-- Add more font options as needed -->
     </select>
-    <script src="js/color.js"></script>
 </div>
