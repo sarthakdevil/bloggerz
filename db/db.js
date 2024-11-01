@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://127.0.0.1/Blog');
+require('dotenv').config();
+mongoose.connect(process.env.mongourl);
 
 const BlogSchema = new mongoose.Schema({
     banner: {
