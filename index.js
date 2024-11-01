@@ -112,8 +112,61 @@ app.get('/blogs/:id', async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 });
+app.get("/edit/:id", async (req, res)=>{
+    // Update a blog post
+    try {
+        const blogID = req.params.id;
+        const foundBlog = await Blog.findById(blogID);
 
+        if (foundBlog) {
+            console.log(foundBlog);
+            res.render("edit", { blog: foundBlog });
+        } else {
+            res.status(404).send("Blog not found");
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error");
+    }
 
+})
+
+app.put("/edit/:id", upload.fields([{ name: "banner", maxCount: 1 }, { name: 'image', maxCount: 1 }]),async  function(req,res){
+    // POST request for updating data
+    var blogid= req.params.id;
+    let updatedTitle = req.body.heading
+    let updatedSubtitle =req.body.subheading
+    let  updatedContent = req.body.content
+    if (req.files && req.files["banner"]) {
+        const filepath = req.files["banner"][0].path;
+        // Upload banner image to Cloudinary
+        const result1 = await uploadOnCloudinary(filepath);
+        bannerUrl = result1.secure_url;
+        bannerId = result1.public_id;
+    }
+    if (req.files && req.files['image']) {
+        const imgFilePath = req.files['image'][0].path;
+        // Upload image to Cloudinary
+        const result2 = await uploadOnCloudinary(imgFilePath);
+        imageUrl = result2.secure_url;
+        imageId = result2.public_id;
+    }
+    await Blog.findByIdAndUpdate(blogid, {
+        title: updatedTitle,
+        subtitle: updatedSubtitle,
+        content: updatedContent,
+        banner: {
+            public_id: bannerId,
+            secure_url: bannerUrl,
+        },
+        bannerId: bannerId,
+        image: {
+            public_id: imageId,
+            secure_url: imageUrl,
+        },
+        imageId: imageId
+    });
+})
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });

@@ -18,9 +18,10 @@
         <h2 class="subheading"><%= blog.subheading %></h2>
         <div class="content">
             <%- blog.paragraph%>
+            <a href=/edit/<%= blog._id %>><button class="edit-btn">edit blog</button>
         </div>
         <% if (blog.image.secure_url !== '') { %>
-            <img src="<%= blog.image.secure_url %>"/>
+            <img class ="image" src="<%= blog.image.secure_url %>"/>
         <% } %> 
         <!-- Render other blog details as needed -->
     <% } else { %>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/post.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/edit/<%= blog._id %>" method="POST" enctype="multipart/form-data">
+        <%-include("blognav") %>
+        <span class="file-input-container">
+            <!-- Actual file input -->
+            <label class="file-input-label" for="file-input" onchange="loadfile()">
+                <img class="plus-icon" src="Plus.png" alt="Upload">
+            </label>
+            <input type="file" class="file-input" id="file-input" name="banner"  accept=".jpg,.jpeg,.png" onchange="loadfile()"/>
+            <% if (blog.banner.secure_url !== '') { %>
+                <img src=<%= blog.banner.secure_url %>/>
+            <% } %> 
+            <!-- "+" icon -->
+        </span>
+        <hr>
+        <textarea name="heading" id="heading" placeholder="Here goes heading" oninput="autoAdjustHeight(this)" class="auto-adjust"><%= blog.heading %></textarea>
+        <textarea name="subheading" id="subheading" placeholder="Here goes subheading" oninput="autoAdjustHeight(this)" class="auto-adjust"><%= blog.subheading %></textarea>
+        <textarea name="content" placeholder="Here goes content" id="content" oninput="autoAdjustHeight(this)" class="auto-adjust"><%= blog.paragraph %></textarea>
+        <span class="file-input-container-bottom auto-adjust">
+            <!-- Actual file input -->
+            <label class="file-input-label-bottom auto-adjust" for="file-input-bottom" onchange="loadfilebottom()">
+                <img class="plus-icon-bottom" src="Plus.png" alt="Upload">
+            </label>
+            <input type="file" class="file-input-bottom" id="file-input-bottom" name="image" accept=".jpg,.jpeg,.png" onchange="loadfilebottom()"/>
+            <% if (blog.image.secure_url !== '') { %>
+                <img src="<%= blog.image.secure_url %>"/>
+            <% } %> 
+            <!-- "+" icon -->
+        </span>
+        <button type="submit" id="submit">submit</button>
+    </form>
+    <script src="/js/post.js"></script>
+</body>
+<script>
+    function submitForm() {
+        const form = document.getElementById('editForm');
+        const formData = new FormData(form);
+    
+        fetch(form.action, {
+            method: 'PUT',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                // Handle success
+                console.log('Form submitted successfully');
+            } else {
+                // Handle errors
+                console.error('Form submission failed');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+    </script>
+</html>

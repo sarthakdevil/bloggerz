@@ -9,6 +9,14 @@ body{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 }
+.image {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  max-width: 97%;
+  margin: .5rem;
+  height: 35vh;
+}
 /* WebKit browsers */
 ::-webkit-scrollbar {
     width: 12px; /* Width of the scrollbar */
@@ -53,4 +61,16 @@ body{
     position: absolute;
     top:65vh;
     font-size: 2vh;
+}
+.edit-btn{
+  position: fixed;
+  top: 95vh;
+  left: 90vw;
+  color: white;
+  background: #951313;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: larger;
+  cursor: pointer;
 }
