@@ -1,4 +1,6 @@
 body{
+    padding: 0%;
+    margin: 0%;
     overflow-x: hidden;
 }
 .banner{
@@ -11,8 +13,8 @@ body{
 }
 .image {
   position: relative;
-  bottom: 0;
-  left: 0;
+  top:97vh;
+  left:35vw;
   max-width: 97%;
   margin: .5rem;
   height: 35vh;

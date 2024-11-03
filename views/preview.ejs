@@ -13,12 +13,11 @@
     <% if (blog) { %>
         <% if (blog.banner.secure_url !== '') { %>
             <img class="banner"  src="<%= blog.banner.secure_url %>"/>
-        <% } %>        
+        <% } %>
         <h1 class="heading"><%= blog.heading %></h1>
         <h2 class="subheading"><%= blog.subheading %></h2>
         <div class="content">
             <%- blog.paragraph%>
-            <a href=/edit/<%= blog._id %>><button class="edit-btn">edit blog</button>
         </div>
         <% if (blog.image.secure_url !== '') { %>
             <img class ="image" src="<%= blog.image.secure_url %>"/>
